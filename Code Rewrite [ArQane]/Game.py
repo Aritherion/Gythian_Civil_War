@@ -40,12 +40,18 @@ def checkId(names, id):
 	playerSelects = names[id]
 	return playerSelects
 	
+def nameModify(n):
+	name = input("\n" + str(players[n]) + " please enter your name. ")
+	players[n] = name
+	return name
+	
 #This later would be in a part of the code that refers to the individual player, checking which hero he/she selects
 def playerCheck(n):
 	names = ["Genevas", "Andlat", "Christina", "Tor", "Ophelia", "Silias", "Merrie", "Vorspiel", "Lace", "Galath", "Chips", "Tana", "Grace", "Vant", "Kyl", "Naru", "Alex"]
-	id = int(input("\nEnter in your hero: "))-1
+	name = nameModify(n)
+	id = int(input("Enter in your hero: "))-1
 	playerHeroID.append(id)
-	print(str(players[n]) + " has selected " + checkId(names, id))
+	print(name + " has selected " + checkId(names, id))
 	return checkId(names, id)
 	
 #Checks the stats and IDs for the player the user calls for
