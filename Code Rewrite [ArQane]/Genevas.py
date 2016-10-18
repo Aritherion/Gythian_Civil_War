@@ -5,10 +5,6 @@ class Genevas:
 
 	def retrieveStats(self):
 		return self.stats
-		
-	def retrieveAbilities(self):
-		ability1 = ability1()
-		ability2 = ability2()
 	
 	def ability1(self):
 		return #nothing
