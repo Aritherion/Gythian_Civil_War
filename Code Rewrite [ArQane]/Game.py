@@ -3,6 +3,36 @@ id1 = Genevas()
 """
 from Andlat import*
 id2 = Andlat()
+from Christina import*
+id3 = Christina()
+from Tor import*
+id4 = Tor()
+from Ophelia import*
+id5 = Ophelia()
+from Silias import*
+id6 = Silias()
+from Merrie import*
+id7 = Merrie()
+from Vorpspiel import*
+id8 = Vorspiel()
+from Lace import*
+id9 = Lace()
+from Galath import*
+id10 = Galath()
+from Chips import*
+id11 = Chips()
+from Tana import*
+id12 = Tana()
+from Grace import*
+id13 = Grace()
+from Vant import*
+id14 = Vant()
+from Kyl import*
+id15 = Kyl()
+from Naru import*
+id16 = Naru()
+from Alex import*
+id17 = Alex()
 """
 	
 #This checks the name of the ID the player selected, and returns it
