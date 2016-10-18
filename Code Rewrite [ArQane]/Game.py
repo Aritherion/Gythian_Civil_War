@@ -11,11 +11,11 @@ def checkId(names, id):
 	return playerSelects
 	
 #This later would be in a part of the code that refers to the individual player, checking which hero he/she selects
-def playerCheck():
+def playerCheck(n):
 	names = ["Genevas", "Andlat", "Christina", "Tor", "Ophelia", "Silias", "Merrie", "Vorspiel", "Lace", "Galath", "Chips", "Tana", "Grace", "Vant", "Kyl", "Naru", "Alex"]
 	id = int(input("\nEnter in your hero: "))-1
 	playerHeroID.append(id)
-	print("You have selected " + checkId(names, id))
+	print(str(players[n]) + " has selected " + checkId(names, id))
 	return checkId(names, id)
 	
 #Checks the stats and IDs for the player the user calls for
@@ -23,10 +23,23 @@ def statCheck():
 	i = int(input("\nChoose the player you wish to check: "))-1
 	print("\n" + players[i] + "'s hero is: " + playerHeroes[i])
 	print("The ID of " + playerHeroes[i] + " is " + str(playerHeroID[i]))
+	print("Health: " + str((callStats(playerHeroID[i])[0])))
+	print("Stamina: " + str((callStats(playerHeroID[i])[1])))
+	print("Mana: " + str((callStats(playerHeroID[i])[2])))
+	print("Ammo: " + str((callStats(playerHeroID[i])[3])))
+	print("Physical Attack: " + str((callStats(playerHeroID[i])[4])))
+	print("Magical Attack: " + str((callStats(playerHeroID[i])[5])))
+	print("Technological Attack: " + str((callStats(playerHeroID[i])[6])))
+	print("Physical Defense: " + str((callStats(playerHeroID[i])[7])))
+	print("Magical Defense: " + str((callStats(playerHeroID[i])[8])))
+	print("Technological Defense: " + str((callStats(playerHeroID[i])[9])))
 
 #This is where stats of the player can be called
-def callStats():
-	playerStats = id1.retrieveStats()
+def callStats(n):
+	playerStats = []
+	idcheck = eval("id" + str(n + 1))
+	playerStats = idcheck.retrieveStats()
+	return playerStats
 
 	
 #Here is where the Game Starts
@@ -45,7 +58,7 @@ for x in range(1, playerNum+1):
 	a = "Player " + str(x)
 	players.append(a)
 	
-for i in players:
-	playerHeroes.append(playerCheck())
+for i in range(0, len(players)):
+	playerHeroes.append(playerCheck(i))
 
 statCheck()
