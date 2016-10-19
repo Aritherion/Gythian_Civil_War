@@ -6,8 +6,14 @@ class Genevas:
 	def retrieveStats(self):
 		return self.stats
 	
-	def ability1(self):
+	def attack1(self):
 		return #nothing
 	
-	def ability2(self):
+	def attack2(self):
+		return #nothing
+		
+	def attack3(self):
+		return #nothing
+	
+	def attack4(self):
 		return #nothing
