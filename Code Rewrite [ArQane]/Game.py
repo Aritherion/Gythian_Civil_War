@@ -36,23 +36,38 @@ id17 = Alex()
 """
 	
 #This checks the name of the ID the player selected, and returns it
-def checkId(names, id):
-	playerSelects = names[id]
+def checkId(heroesLeft, id):
+	playerSelects = heroesLeft[id]
 	return playerSelects
 	
 def nameModify(n):
-	name = input("\n" + str(players[n]) + " please enter your name. ")
+	print("\nCharacter Select")
+	name = input(str(players[n]) + " please enter your name. ")
 	players[n] = name
 	return name
 	
+def selectionFormat(num, hero):
+	return "(" + str(num + 1) + ") " + hero
+	
+def selectionRecall(n, pNum):
+	if (n == 0):
+		n -= 1
+		print("\nSelection Panel")
+		for n in range(len(heroesLeft)):
+			if(heroesLeft[n] != "Selected"):
+				print(selectionFormat(n, heroesLeft[n]))
+	else:
+		n-=1
+		heroesLeft[n] = "Selected"
 #This later would be in a part of the code that refers to the individual player, checking which hero he/she selects
 def playerCheck(n):
-	names = ["Genevas", "Andlat", "Christina", "Tor", "Ophelia", "Silias", "Merrie", "Vorspiel", "Lace", "Galath", "Chips", "Tana", "Grace", "Vant", "Kyl", "Naru", "Alex"]
-	name = nameModify(n)
+	selectionRecall(0, playersLeft)
+	namePlyr = nameModify(n)
 	id = int(input("Enter in your hero: "))-1
 	playerHeroID.append(id)
-	print(name + " has selected " + checkId(names, id))
-	return checkId(names, id)
+	print(namePlyr + " has selected " + checkId(heroesLeft, id))
+	selectionRecall(id + 1, playersLeft)
+	return checkId(heroesLeft, id)
 	
 #Checks the stats and IDs for the player the user calls for
 def statCheck():
@@ -82,6 +97,10 @@ def callStats(n):
 print("Welcome to the Gythian Civil War Battle Simulator.")
 print("Please input the number of players.")
 playerNum = int(input())
+playersLeft = playerNum
+
+names = ["Genevas", "Andlat", "Christina", "Tor", "Ophelia", "Silias", "Merrie", "Vorspiel", "Lace", "Galath", "Chips", "Tana", "Grace", "Vant", "Kyl", "Naru", "Alex"]
+heroesLeft = names
 #The player ID, or each individual player
 players = []
 #The name of the hero each player selected
