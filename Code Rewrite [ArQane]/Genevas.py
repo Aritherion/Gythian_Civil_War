@@ -1,3 +1,6 @@
+from attackFunctionality import*
+attack = attackFunctionality()
+
 class Genevas:
 	
 	def __init__(self):
@@ -7,7 +10,11 @@ class Genevas:
 		return self.stats
 	
 	def attack1(self):
-		return #nothing
+		damage = 20
+		target = attack.chooseTarget()
+		turns = 3
+		DoT = attack.damageOverTime(damage, target, turns)
+		print(DoT)
 	
 	def attack2(self):
 		return #nothing
