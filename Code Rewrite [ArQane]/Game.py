@@ -36,8 +36,8 @@ id17 = Alex()
 """
 	
 #This checks the name of the ID the player selected, and returns it
-def checkId(heroesLeft, id):
-	playerSelects = heroesLeft[id]
+def checkId(heroNames, id):
+	playerSelects = heroNames[id]
 	return playerSelects
 	
 def nameModify(n):
@@ -66,9 +66,9 @@ def playerCheck(n):
 	namePlyr = nameModify(n)
 	id = int(input("Enter in your hero: "))-1
 	playerHeroID.append(id)
-	print(namePlyr + " has selected " + checkId(heroesLeft, id))
+	print(namePlyr + " has selected " + checkId(names, id))
 	selectionRecall(id + 1, playersLeft)
-	return checkId(heroesLeft, id)
+	return checkId(names, id)
 	
 #Checks the stats and IDs for the player the user calls for
 def statCheck():
@@ -101,7 +101,11 @@ playerNum = int(input())
 playersLeft = playerNum
 
 names = ["Genevas", "Andlat", "Christina", "Tor", "Ophelia", "Silias", "Merrie", "Vorspiel", "Lace", "Galath", "Chips", "Tana", "Grace", "Vant", "Kyl", "Naru", "Alex"]
-heroesLeft = names
+heroesLeft = []
+
+for i in range(0, len(names)):
+	heroesLeft.append(names[i])
+
 #The player ID, or each individual player
 players = []
 #The name of the hero each player selected
